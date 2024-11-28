@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0%;
+            margin: 0%;
+            font-family: 'sans-serif';
+        }
+        .wrapper{
+            display: flex;
+            width: 100%;
+            height: 100vh;
+            flex-wrap: wrap;
+            /* flex-basis: 50% ;
+            height: 100hv;
+            position: relative; */
+        
+        }
+        .left-col, .right-col{
+            flex-basis: 50% ;
+            height: 100hv;
+            position: relative;
+
+        }
+       .logo{
+        display: block;
+        width: 80px;
+        margin-top: 30px;
+        margin-left: 120px;
+       }
+       .content{
+        max-width:500px;
+        position: absolute;
+        top: 50%;
+        left: 120px;
+        transform:translateY(-50%) ;
+       }
+       .content h1{
+        color:#05a35f ;
+        font-size: 60px;
+        line-height: 70px;
+        margin: 25px 0;
+
+       }
+       .content p{
+        color: #777;
+        font-size: 17px;
+        line-height: 28px;
+        margin-bottom: 50px;
+
+       }
+       button{
+        width: 200px;
+        border: none;
+        background: #05a35f;
+        box-shadow: 0px 10px 10px 1px rgba(219, 219, 219, 0.5);
+        padding: 25px 0;
+        color: #fff;
+        outline: none;
+        font-size: 12px;
+        cursor: pointer;
+       }
+       .slider{
+        width: 100%;
+        height: 60%;
+        display: flex;
+
+       }
+       .slider img{
+        width: 100%;
+       }
+       .slider-content{
+        width: 100%;
+        height: 40%;
+        background: #05a35f;
+        padding-top: 30px;
+        padding-left: 30px;
+        box-sizing:border-box ;
+       }
+       .slider-content h2{
+        font-size: 26px;
+        font-weight: 100;
+        color: #fff;
+       }
+       .slider-content p{
+        color: #bfffdd;
+        font-size:16px;
+        line-height: 24px;
+        margin-bottom: 20px;
+
+       }
+       hr{
+        border:none;
+        width: 270px;
+        height: 1px;
+        background:#b5e3cf;
+        margin: 20px 0 30px;
+
+       }
+       .controller{
+        width: 120px;
+        padding: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+       }
+      .controller img{
+        width: 45px;
+        cursor: pointer;
+      }
+      .vertical-line{
+        width: 2px;
+        height: 30px;
+        background:#b5e3cf ;
+      }
+      @media only screen and (max-width:800px){
+        .logo{
+        margin: 30px auto;
+       }
+       .left-col, .right-col{
+        flex-basis: 100%;
+       }
+       .content{
+        left: 0;
+        padding: 20px;
+        text-align: center;
+
+       }
+       .content h1{
+        font-size: 34px;
+        line-height: 38px;
+       }
+       .slider{
+        height: auto;
+       }
+       .slider-content{
+        height: auto;
+       }
+
+      }
+
+
+        
+        
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="left-col">
+            <img src="logo.png" class="logo">
+
+            <div class="content">
+                <h1>Add plants to yourliving space</h1>
+                <p>plants are an inexpensive means to accessorizing your space and space and adding color and texture.</p> 
+                <button type="button">LEARN MOR</button>
+    
+            </div>
+
+        </div >
+        
+        <div class="right-col">
+            <div class="slider">
+                <img src="pic-1.jpg" id="slide">
+            </div>
+            <div class="slider-content">
+                <h2>where can i find ideas for small rooms?</h2>
+                <hr>
+                <p>they can absorb pollutants and remove harmfulgases
+                     from the air. no home<br> should be without these
+                      wonderful greens! desgining small rooms comes with
+                       a<br> completely different challenge.
+                </p>
+                <div class="controller">
+                    <img src="back.png" id="backbtn">
+                    <div class="vertical-line" id="backbtn"></div>
+                    <img src="next.png" id="nextbtn">
+                </div>
+            </div>
+
+        </div>
+    </div>
+<script>
+    var slide = document.getElementById("slide");
+    var backbtn = document.getElementById("backbtn");
+    var nextbtn = document.getElementById("nextbtn");
+    var slideimages = [ 
+        "pic-1.jpg",
+        "pic-2.jpg", 
+        "pic-3.jpg", 
+        "pic-4.jpg",
+];
+    // var slideimages = [ "pic-1.jpg",
+    //     "pic-2.jpg", 
+    //     "pic-3.jpg", 
+    //     "pic-4.jpg",];
+    let i =0;
+
+
+    slide.src =slideimages[i]; "pic-1.jpg";
+
+
+    nextbtn.onclick = function(){
+
+        if(i<slideimages.length -1){
+            i++;
+            slide.src = slideimages[i];  
+        }
+};
+
+
+
+backbtn.onclick = function(){
+        if(i>0){
+            i--;
+            slide.src = slideimages[i];
+        }
+    };
+
+
+</script>
+</body>
+</html>
